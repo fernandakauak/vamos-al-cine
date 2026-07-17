@@ -12,9 +12,7 @@
             <label for="salapeli">Tipo de Función:</label>
             <select name="" id="salapeli">
                 <option value="">2D - Normal</option>
-                <option value="">3D</option>
-                <option value="">Extreme</option>
-                <option value="">Premium</option>
+                <option value="">3D — (+$1.500 por butaca)</option>
             </select>
             <label for="retiro">Nombre de quién retira*:</label>
             <input type="text" id="retiro" placeholder="Tu nombre">
