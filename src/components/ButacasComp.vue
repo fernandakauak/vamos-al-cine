@@ -50,13 +50,24 @@ function seleccionar(butaca) {
 function comprar() {
   if (!puedeComprar.value) return;
   comprado.value = true;
-}
+};
+
+//Reseña Película
+const peliFuncion = ref({
+    imgPeli: "/src/assets/img/afiche-carrie.png",
+    nombrePeli: "Carrie",
+    anioPeli : 1976,
+    dirPeli : "Brian de Palma",
+    genPeli : "Terror/Misterio",
+    resenaPeli : "Carrie White, una tímida adolescente que vive con su madre, una fanática religiosa, es objeto de las burlas constantes de sus compañeros de instituto. Cuando, en las duchas del gimnasio, la chica sufre un ataque de histeria al tener su primera menstruación, a una de sus compañeras se le ocurre gastarle una broma macabra durante la fiesta de graduación. Lo que todos ignoran es que Carrie posee poderes telequinésicos. Adaptación de la novela homónima de Stephen King.",
+});
+
 </script>
 
 <template>
     <header>
         <h2>Cine PokeMetálicos <span>presenta</span>:</h2>
-        <h1>Carrie</h1>
+        <img class="logo" src="../assets/img/logo-carrie.png" alt="Carrie">
     </header>
     <section>
         <aside>
@@ -75,16 +86,16 @@ function comprar() {
             <p class="aviso" v-if="aviso">{{ aviso }}</p>
 
             <h3>Subtotal <span>${{ subtotal }}</span></h3>
-            <h2>Total <span>${{ total }}</span></h2>
+            <h2 class="total">Total <span>${{ total }}</span></h2>
 
-            <button :disabled="!puedeComprar" @click="comprar">
+            <button :disabled="!puedeComprar" @click="comprar" :class="botoncomprar = puedeComprar">
               {{ comprado ? '¡Comprado con éxito!' : 'Comprar Entrada' }}
             </button>
         </aside>
-        <article>
-            <h1>Función Especial: 1 de Agosto</h1>
+        <article class="mapa-butacas">
+            <h1>Función Especial: 1 de Agosto - 20:00hrs</h1>
 
-            <div>Pantalla</div>
+            <div class="pantalla">Pantalla</div>
 
             <table class="butacas">
                 <thead>
@@ -109,9 +120,38 @@ function comprar() {
             </table>
         </article>
     </section>
+    <section class="info">
+        <img src="/src/assets/img/afiche-carrie.png" alt="{ peliFuncion.nombrePeli }">
+        <div class="texto">
+            <h2>{{ peliFuncion.nombrePeli }} ({{ peliFuncion.anioPeli }})</h2>
+            <h3>Director: {{ peliFuncion.dirPeli }} / Género: {{ peliFuncion.genPeli }} </h3>
+            <p>{{ peliFuncion.resenaPeli }}</p>
+        </div>
+    </section>
+
+    <footer>
+        Hecho por "PokeMetálicos Asociados" para el bootcamp Curso de Desarrollo de Aplicaciones Front-End SENCE 2026 <br>
+        <span>If you've got a tast for terror... take Carrie to the prom.</span>
+    </footer>
 </template>
 
 <style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
+
+    h1, h2 {
+        font-family: "Amarante", serif;
+    }
+
+    header h2 {
+        color: darkorange;
+        text-transform: uppercase;
+        background-color: black;
+        width: 45%;
+        padding: 2%;
+        border-radius: 100px;
+        margin: auto;
+    }
+
     section {
         width: 96%;
         display: flex;
@@ -119,18 +159,66 @@ function comprar() {
         padding: 2%;
     }
 
-    article {
+    article.mapa-butacas {
         width: 76%;
         margin: 0;
-        background-color: red;
+        background-color: lightgoldenrodyellow;
+        border-radius: 15px;
+    }
+
+    article.mapa-butacas h1 {
+        color: darkred;
     }
 
     aside {
         width: 20%;
         border-radius: 15px;
-        background-color: darkslategrey;
+        background-color: darkred;
         color: white;
         padding: 2%;
+        text-align: left;
+    }
+
+    select, input {
+        padding: 2%;
+        width: 100%;
+        border-radius: 10px;
+        margin: 2% 0;
+        border: 1px solid gray;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        width: 95%;
+    }
+
+    h2.total {
+        color: yellow;
+        margin: 2%;
+        border-top: 1px solid yellow;
+        padding: 2%;
+    }
+
+    .botoncomprar {
+        width: 100%;
+        padding: 2%;
+        border-radius: 10px;
+        border: 1px solid darkorange;
+        background-color: darkorange;
+        color: white;
+        font-size: 14px;
+    }
+
+    .pantalla {
+        background-color: darkslategray;
+        width: 65%;
+        margin: auto;
+        padding: 1%;
+        border-radius: 0 0 10px 10px;
+        color: white;
     }
 
     .butacas {
@@ -167,12 +255,12 @@ function comprar() {
     }
     
     .butacas td.disponible {
-        background-color: blueviolet;
+        background-color: lightgrey;
         cursor: pointer;
     }
 
     .butacas td.seleccionada {
-        background-color: green;
+        background-color: orangered;
         font-weight: bold;
         cursor: pointer;
     }
@@ -180,5 +268,35 @@ function comprar() {
     .butacas td.ocupada {
         background-color: darkslategray;
         cursor: not-allowed;
+    }
+
+    .logo {
+        width: 40%;
+    }
+
+    section.info {
+        width: 90%;
+        background-color: black;
+        border: 1px solid yellow;
+        color: white;
+        margin: auto;
+    }
+
+    section.info img {
+        width: 20%;
+    }
+
+    footer {
+        padding: 2%;
+        width: 96%;
+        margin-top: 5%;
+        color: orangered;
+        background-color: black;
+        border-top: 2px solid yellow;
+    }
+
+    footer span {
+        font-style: italic;
+        font-weight: bold;
     }
 </style>
