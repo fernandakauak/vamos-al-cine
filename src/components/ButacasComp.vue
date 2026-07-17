@@ -88,7 +88,7 @@ const peliFuncion = ref({
             <h3>Subtotal <span>${{ subtotal }}</span></h3>
             <h2 class="total">Total <span>${{ total }}</span></h2>
 
-            <button :disabled="!puedeComprar" @click="comprar" :class="botoncomprar = puedeComprar">
+            <button :disabled="!puedeComprar" @click="comprar" class="botoncomprar">
               {{ comprado ? '¡Comprado con éxito!' : 'Comprar Entrada' }}
             </button>
         </aside>
@@ -120,14 +120,14 @@ const peliFuncion = ref({
             </table>
         </article>
     </section>
-    <section class="info">
-        <img src="/src/assets/img/afiche-carrie.png" alt="{ peliFuncion.nombrePeli }">
-        <div class="texto">
+    <div class="info">
+        <img id="portada" src="/src/assets/img/afiche-carrie.png" alt="{ peliFuncion.nombrePeli }">
+        <div class="texto" id="sinopsis">
             <h2>{{ peliFuncion.nombrePeli }} ({{ peliFuncion.anioPeli }})</h2>
             <h3>Director: {{ peliFuncion.dirPeli }} / Género: {{ peliFuncion.genPeli }} </h3>
             <p>{{ peliFuncion.resenaPeli }}</p>
         </div>
-    </section>
+    </div>
 
     <footer>
         Hecho por "PokeMetálicos Asociados" para el bootcamp Curso de Desarrollo de Aplicaciones Front-End SENCE 2026 <br>
@@ -155,15 +155,18 @@ const peliFuncion = ref({
     section {
         width: 96%;
         display: flex;
+        flex-wrap: wrap; 
         gap: 2%;
         padding: 2%;
+        margin-bottom: 10px;
     }
 
     article.mapa-butacas {
-        width: 76%;
+        flex: 3 1 350px; 
         margin: 0;
         background-color: lightgoldenrodyellow;
         border-radius: 15px;
+        padding: 0 7px 10px 5px;;
     }
 
     article.mapa-butacas h1 {
@@ -171,7 +174,7 @@ const peliFuncion = ref({
     }
 
     aside {
-        width: 20%;
+        flex: 1 1 150px; 
         border-radius: 15px;
         background-color: darkred;
         color: white;
@@ -210,6 +213,13 @@ const peliFuncion = ref({
         background-color: darkorange;
         color: white;
         font-size: 14px;
+        cursor: pointer;
+    }
+
+    .botoncomprar:disabled {
+        background-color: gray;
+        border-color: gray;
+        cursor: not-allowed;
     }
 
     .pantalla {
@@ -274,18 +284,6 @@ const peliFuncion = ref({
         width: 40%;
     }
 
-    section.info {
-        width: 90%;
-        background-color: black;
-        border: 1px solid yellow;
-        color: white;
-        margin: auto;
-    }
-
-    section.info img {
-        width: 20%;
-    }
-
     footer {
         padding: 2%;
         width: 96%;
@@ -299,4 +297,35 @@ const peliFuncion = ref({
         font-style: italic;
         font-weight: bold;
     }
+
+
+    .info {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+        border: 1px solid yellow;
+        color: white;
+        margin: 10px;
+    }
+
+    #portada {
+        flex: 1 1 260px; 
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        box-sizing: border-box;
+        object-fit: contain;
+    }
+
+    #sinopsis {
+        flex: 999 1 300px;
+        text-align: right;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #sinopsis p {
+        text-wrap: pretty;
+    }
+    
 </style>
