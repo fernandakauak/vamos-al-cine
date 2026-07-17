@@ -131,7 +131,7 @@ const peliFuncion = ref({
 
     <footer>
         Hecho por "PokeMetálicos Asociados" para el bootcamp Curso de Desarrollo de Aplicaciones Front-End SENCE 2026 <br>
-        <span>If you've got a tast for terror... take Carrie to the prom.</span>
+        <span>If you've got a taste for terror... take Carrie to the prom.</span>
     </footer>
 </template>
 
