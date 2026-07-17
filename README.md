@@ -1,5 +1,9 @@
-# Vue 3 + Vite
+#  🎞️ ¡Función Especial: Carrie!
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+El cine "PokeMetálicos" le ofrece una transmisión especial del clásico de terror "Carrie" (lanzado en 1976), que nos narra las desventuras de Carrie White, viviendo con su madre fanática religiosa y el acoso de sus compañeros de clase. ¿Descubrir poderes telequinéticos la llevará a una oportunidad de salvarse o a una desgracia mayor? **¡Ven y descúbrelo!**
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Te esperamos el día 1 de Agosto a las 20:00hrs en nuestra sala de clásicos. 🎥
+
+---
+
+> 🎓 *Este sitio fue hecho por el grupo **PokeMetálicos Asociados**, integrado por **Fernanda Kauak** y **Martín Miranda**, en el Curso de Desarrollo Front-End de SENCE 2026.*
