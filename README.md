@@ -6,4 +6,6 @@ Te esperamos el día 1 de Agosto a las 20:00hrs en nuestra sala de clásicos. �
 
 ---
 
+Puede verlo aquí: https://fernandakauak.github.io/vamos-al-cine/
+
 > 🎓 *Este sitio fue hecho por el grupo **PokeMetálicos Asociados**, integrado por **Fernanda Kauak** y **Martín Miranda**, en el Curso de Desarrollo Front-End de SENCE 2026.*
