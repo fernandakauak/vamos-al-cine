@@ -97,31 +97,26 @@ const peliFuncion = ref({
 
             <div class="pantalla">Pantalla</div>
 
-            <table class="butacas">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th v-for="num in 8" :key="num">{{ num }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="fila in ['A', 'B', 'C', 'D', 'E']" :key="fila">
-                        <th>{{ fila }}</th>
-                        <td 
-                            v-for="num in 8" 
-                            :key="num"
-                            :class="obtenerClase(`${fila}${num}`)"
-                            @click="seleccionar(`${fila}${num}`)"
-                        >
-                            {{ seleccionadas.includes(`${fila}${num}`) ? `${fila}${num}` : '\u00a0' }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="butacas">
+                <div class="th"></div>
+                <div class="th" v-for="num in 8" :key="num">{{ num }}</div>
+                
+                <template v-for="fila in ['A', 'B', 'C', 'D', 'E']" :key="fila">
+                    <div class="th">{{ fila }}</div>
+                    <div class="td" 
+                        v-for="num in 8" 
+                        :key="num"
+                        :class="obtenerClase(`${fila}${num}`)"
+                        @click="seleccionar(`${fila}${num}`)"
+                    >
+                        {{ seleccionadas.includes(`${fila}${num}`) ? `${fila}${num}` : '\u00a0' }}
+                    </div>
+                </template>
+            </div>
         </article>
     </section>
     <div class="info">
-        <img id="portada" src="/src/assets/img/afiche-carrie.png" alt="{ peliFuncion.nombrePeli }">
+        <img id="portada" src="/src/assets/img/afiche-carrie.png" :alt="peliFuncion.nombrePeli">
         <div class="texto" id="sinopsis">
             <h2>{{ peliFuncion.nombrePeli }} ({{ peliFuncion.anioPeli }})</h2>
             <h3>Director: {{ peliFuncion.dirPeli }} / Género: {{ peliFuncion.genPeli }} </h3>
@@ -166,7 +161,8 @@ const peliFuncion = ref({
         margin: 0;
         background-color: lightgoldenrodyellow;
         border-radius: 15px;
-        padding: 0 7px 10px 5px;;
+        padding: 0 1px 1px 1px;
+        margin-top: 5px;
     }
 
     article.mapa-butacas h1 {
@@ -180,6 +176,7 @@ const peliFuncion = ref({
         color: white;
         padding: 2%;
         text-align: left;
+        margin-top: 5px;
     }
 
     select, input {
@@ -233,27 +230,20 @@ const peliFuncion = ref({
 
     .butacas {
         display: grid;
-        grid-template-columns: auto repeat(8, 1fr);
+        grid-template-columns: auto repeat(8, minmax(0, 1fr));
         gap: 5px;
-        width: auto;
+        width: 100%;
         max-width: 350px;
         margin: auto;
     }
 
-    .butacas thead, 
-    .butacas tbody, 
-    .butacas tr {
-        display: contents;
-    }
-
-    .butacas th {
+    .butacas .th {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 40px;
     }
 
-    .butacas td {
+    .butacas .td {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -264,18 +254,18 @@ const peliFuncion = ref({
         box-sizing: border-box;
     }
     
-    .butacas td.disponible {
+    .butacas .td.disponible {
         background-color: lightgrey;
         cursor: pointer;
     }
 
-    .butacas td.seleccionada {
+    .butacas .td.seleccionada {
         background-color: orangered;
         font-weight: bold;
         cursor: pointer;
     }
 
-    .butacas td.ocupada {
+    .butacas .td.ocupada {
         background-color: darkslategray;
         cursor: not-allowed;
     }
@@ -311,6 +301,7 @@ const peliFuncion = ref({
     #portada {
         flex: 1 1 260px; 
         width: 100%;
+        max-width: 350px;
         height: auto;
         padding: 20px;
         box-sizing: border-box;
@@ -326,6 +317,10 @@ const peliFuncion = ref({
 
     #sinopsis p {
         text-wrap: pretty;
+    }
+    
+    #sinopsis h2 {
+        color: yellow;
     }
     
 </style>
