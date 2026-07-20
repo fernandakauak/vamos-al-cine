@@ -215,8 +215,7 @@ const peliFuncion = ref({
     }
 
     .botoncomprar:not(:disabled):hover {
-        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
-        filter: brightness(0.85);
+        box-shadow:  0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
     .botoncomprar:disabled {
@@ -241,6 +240,7 @@ const peliFuncion = ref({
         width: 100%;
         max-width: 350px;
         margin: auto;
+        padding: 15px;
     }
 
     .butacas .th {
