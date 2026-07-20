@@ -109,7 +109,7 @@ const peliFuncion = ref({
                         :class="obtenerClase(`${fila}${num}`)"
                         @click="seleccionar(`${fila}${num}`)"
                     >
-                        {{ seleccionadas.includes(`${fila}${num}`) ? `${fila}${num}` : '\u00a0' }}
+                        {{ fila }}{{ num }}
                     </div>
                 </template>
             </div>
@@ -211,6 +211,12 @@ const peliFuncion = ref({
         color: white;
         font-size: 14px;
         cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .botoncomprar:not(:disabled):hover {
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+        filter: brightness(0.85);
     }
 
     .botoncomprar:disabled {
@@ -249,7 +255,7 @@ const peliFuncion = ref({
         align-items: center;
         justify-content: center;
         aspect-ratio: 1 / 1;
-        color: white;
+        color: transparent;
         border-radius: 10px;
         padding: 0;
         box-sizing: border-box;
@@ -258,12 +264,21 @@ const peliFuncion = ref({
     .butacas .td.disponible {
         background-color: lightgrey;
         cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .butacas .td.disponible:hover {
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+        filter: brightness(0.85);
+        color: rgba(0, 0, 0, 0.7);
     }
 
     .butacas .td.seleccionada {
         background-color: orangered;
+        color: white;
         font-weight: bold;
         cursor: pointer;
+        transition: all 0.2s ease;
     }
 
     .butacas .td.ocupada {
